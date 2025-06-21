@@ -2,6 +2,7 @@ node_modules
 .env
 .DS_store
 
+output/
 # Hardhat files
 /cache*
 /artifacts*

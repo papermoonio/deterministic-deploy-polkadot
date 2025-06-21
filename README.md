@@ -60,9 +60,13 @@ This will compile all Yul contracts in the designated contracts directory using 
 To deploy your contract, run the deployment script with:
 
 ```bash
-npx hardhat run scripts/deploy-proxy.ts --network local
+USE_POLKAVM=true npx hardhat run scripts/deploy-proxy.ts --network local
 ```
 switch to `--network ah` if you want to deploy it onto assethub-westend.
 
 
+To Test, run:
+```
+USE_POLKAVM=true npx hardhat test --network local
+```
 Make sure your `.env` and configuration files are properly set up before running these commands.

@@ -6,6 +6,8 @@ import * as dotenv from "dotenv";
 import "./tasks/compile-yul";
 dotenv.config();
 
+const usePolkaVM = process.env.USE_POLKAVM === "true";
+
 const config: HardhatUserConfig = {
   solidity: "0.8.30",
   resolc: {
@@ -15,18 +17,20 @@ const config: HardhatUserConfig = {
     }
   },
   networks: {
-    hardhat: {
-      polkavm: true,
-      nodeConfig: {
-        nodeBinaryPath: '../../../code/polkadot-sdk/target/debug/substrate-node',
-        rpcPort: 8000,
-        dev: true,
-      },
-      adapterConfig: {
-        adapterBinaryPath: '../../../code/polkadot-sdk/target/debug/eth-rpc',
-        dev: true,
-      },
-    },
+    hardhat: usePolkaVM
+      ? {
+          polkavm: true,
+          nodeConfig: {
+            nodeBinaryPath: "../bin/substrate-node",
+            rpcPort: 8000,
+            dev: true,
+          },
+          adapterConfig: {
+            adapterBinaryPath: "../bin/eth-rpc",
+            dev: true,
+          },
+        }
+      : {},
     local: {
       polkavm: true,
       url: 'http://127.0.0.1:8545',
