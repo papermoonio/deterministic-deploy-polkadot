@@ -15,7 +15,7 @@ interface CompilerConfig {
 }
 
 const defaultConfig: CompilerConfig = {
-	resolcPath: process.env.RESOLC_PATH || '~/.cargo/bin/resolc-0.1.0-dev.16',
+	resolcPath: process.env.RESOLC_PATH || '~/.cargo/bin/resolc-0.3.0',
 	// add solc path, the default one is set for macos
 	solcPath: process.env.SOLC_PATH || '/opt/homebrew/bin/solc',
 	inputFile: 'contracts/deterministic-deployment-proxy.yul',
