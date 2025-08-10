@@ -13,8 +13,7 @@ const config: HardhatUserConfig = {
   resolc: {
     compilerSource: "binary",
     settings: {
-      compilerPath: "~/.cargo/bin/resolc-0.3.0",
-      solcPath: "/opt/homebrew/bin/solc"
+      compilerPath: "resolc-0.3.0",
     }
   },
   networks: {
@@ -22,7 +21,7 @@ const config: HardhatUserConfig = {
       ? {
           polkavm: true,
           nodeConfig: {
-            nodeBinaryPath: "../../revive-dev-node",
+            nodeBinaryPath: "../../substrate-node",
             rpcPort: 8000,
             dev: true,
           },
